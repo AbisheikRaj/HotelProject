@@ -17,14 +17,14 @@ public class RoomServiceImpl implements RoomService {
         switch(roomSection) {
             case "A" :
                 return "SINGLE_COT_WITH_AC";
-//            case "B" :
-//                return "SINGLE_COT_WITH_NON-AC";
-//            case "C" :
-//                return "DOUBLE_COT_WITH_AC";
-//            case "D" :
-//                return "DOUBLE_COT_WITH_NON-AC";
-//            case "E" :
-//                return "TRIPLE_COT_WITH_AC";
+            case "B" :
+                return "SINGLE_COT_WITH_NON-AC";
+            case "C" :
+                return "DOUBLE_COT_WITH_AC";
+            case "D" :
+                return "DOUBLE_COT_WITH_NON-AC";
+            case "E" :
+                return "TRIPLE_COT_WITH_AC";
             case "F" :
                 return "TRIPLE_COT_WITH_NON-AC";
         }
