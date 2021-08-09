@@ -56,33 +56,18 @@
     <div class = "message__alert">
         <div class = "error__alert">
             <%
-                if (session.getAttribute("store_message") != null) {
+                if (session.getAttribute("MESSAGE") != null) {
             %>
             <div>
                 <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
-                    <strong class="font-bold">${store_message}</strong>
+                    <strong class="font-bold">${MESSAGE}</strong>
                 </div>
             </div>
-            <%
-                } else if (session.getAttribute("delete_message") != null) {
-            %>
-            <div>
-                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
-                    <strong class="font-bold">${delete_message}</strong>
-                </div>
-            </div>
-            <%
-            } else if ( session.getAttribute("store_message_error") != null) { %>
-            <div>
-                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-                    <strong class="font-bold">${store_message_error}</strong>
-                </div>
-            </div>
-            <%
-                }
-                session.removeAttribute("store_message"); session.removeAttribute("delete_message");
-            %>
         </div>
+        <%
+            }
+            session.removeAttribute("MESSAGE");
+        %>
     </div>
 </div>
 
@@ -93,9 +78,10 @@
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <%
-                            if (session.getAttribute("accept_rooms") != null && session.getAttribute("accept_room") == null && session.getAttribute("message1") != "Invalid") {
+                            if (session.getAttribute("rooms") != null && session.getAttribute("room") == null && session.getAttribute("message1") != "Invalid") {
                         %>
-                    <table class="min-w-full divide-y divide-gray-200" aria-describedby="list of rooms">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <caption>List of Room Details</caption>
                         <thead class="bg-gray-50">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -116,7 +102,7 @@
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                            <c:forEach items = '${rooms}' var = "room">
+                            <c:forEach items = '<%= session.getAttribute("rooms") %>' var = "room">
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
@@ -160,9 +146,10 @@
                         </tbody>
                     </table>
                         <%
-                            } else if(session.getAttribute("accept_room") != null && session.getAttribute("message1") != "Invalid"){
+                            } else if(session.getAttribute("room") != null && session.getAttribute("message1") != "Invalid"){
                         %>
-                    <table class="min-w-full divide-y divide-gray-200" aria-describedby="list of rooms">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <caption>List of Room Details</caption>
                         <thead class="bg-gray-50">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -188,20 +175,20 @@
                                     <div class="flex items-center">
                                         <div class="ml-4">
                                             <div class="text-sm font-medium text-gray-900 text-center">
-                                                <%= session.getAttribute("roomNumber")%>
+                                                ${room.roomNumber}
                                             </div>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-purple-800">
-                                    <%= session.getAttribute("roomSection") %>
+                                    ${room.roomSection}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900"><%= session.getAttribute("roomType") %></div>
+                                    <div class="text-sm text-gray-900">${room.roomType}</div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <c:choose>
-                                        <c:when test='${roomAvailability}'>
+                                        <c:when test="${room.roomAvailability}">
                                                      <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                                          Available
                                                      </span>
@@ -226,7 +213,7 @@
                             <div class="data__message"> <h1>No data are Available...</h1></div>
 
 
-                        <% } session.removeAttribute("accept_rooms"); session.removeAttribute("accept_room"); session.removeAttribute("message1"); %>
+                        <% } session.removeAttribute("rooms"); session.removeAttribute("room"); session.removeAttribute("message1"); %>
                 </div>
             </div>
         </div>

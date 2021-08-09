@@ -9,6 +9,6 @@
      <property name="connection.username">abisheikraj</property>
     <property name="connection.password">abisheik</property>
 
-    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.hbm2ddl.auto">validate</property>
   </session-factory>
 </hibernate-configuration>
