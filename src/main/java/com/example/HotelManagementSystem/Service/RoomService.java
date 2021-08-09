@@ -8,4 +8,6 @@ public interface RoomService {
     String storeRoom(RoomDetails roomDetails) throws Exception;
     List<RoomDetails> getRoomDetails() throws Exception;
     String updateRoom(RoomDetails roomDetails) throws Exception;
+    RoomDetails getRoom(int roomNumber);
+    String deleteRoom(int roomNumber);
 }

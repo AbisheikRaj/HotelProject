@@ -13,32 +13,8 @@ public class RoomServiceImpl implements RoomService {
     @Autowired
     private RoomDAO roomDAO;
 
-    private String roomSection(String roomSection) {
-        switch(roomSection) {
-            case "A" :
-                return "SINGLE_COT_WITH_AC";
-            case "B" :
-                return "SINGLE_COT_WITH_NON-AC";
-            case "C" :
-                return "DOUBLE_COT_WITH_AC";
-            case "D" :
-                return "DOUBLE_COT_WITH_NON-AC";
-            case "E" :
-                return "TRIPLE_COT_WITH_AC";
-            case "F" :
-                return "TRIPLE_COT_WITH_NON-AC";
-        }
-        return "INVALID OPTION";
-    }
-
     @Override
     public String storeRoom(RoomDetails roomDetails) throws Exception {
-
-        String roomType = roomSection(roomDetails.getRoomSection());
-        if (roomType.equals("INVALID OPTION")) {
-            return "INVALID DATA";
-        }
-        roomDetails.setRoomType(roomType);
         String result = roomDAO.storeRoomDetails(roomDetails);
         return result;
     }
@@ -51,5 +27,15 @@ public class RoomServiceImpl implements RoomService {
     @Override
     public String updateRoom(RoomDetails roomDetails) throws Exception {
         return roomDAO.updateRoomDetails(roomDetails);
+    }
+
+    @Override
+    public RoomDetails getRoom(int roomNumber) {
+        return roomDAO.getRoomDetails(roomNumber);
+    }
+
+    @Override
+    public String deleteRoom(int roomNumber) {
+        return roomDAO.deleteRoomDetails(roomNumber);
     }
 }

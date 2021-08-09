@@ -27,7 +27,7 @@ public class RoomDAO {
         } catch(Exception e) {
             throw new RoomException("Room Number already Exists");
         }
-        return "Room Details are Stored successfully";
+        return "Valid";
     }
 
     public List<RoomDetails> getAllRoomDetails() throws Exception {
@@ -56,8 +56,40 @@ public class RoomDAO {
             transaction.commit();
             session.close();
         } catch(Exception e) {
-            throw new RoomException("Room No : " + roomDetails.getRoomNumber() + " does not exists");
+            return new RoomException("Room No : " + roomDetails.getRoomNumber() + " does not exists").getErrorMessage();
         }
-        return "Details are updated successfully";
+        return "Valid";
+    }
+
+    public RoomDetails getRoomDetails(int roomNumber) {
+        RoomDetails roomDetails;
+        Configuration con = new Configuration().configure().addAnnotatedClass(RoomDetails.class);
+        SessionFactory sf = con.buildSessionFactory();
+        Session session = sf.openSession();
+        try {
+            Transaction transaction = session.beginTransaction();
+            roomDetails = session.get(RoomDetails.class, roomNumber);
+            transaction.commit();
+            session.close();
+        } catch(Exception e) {
+            return null;
+        }
+        return roomDetails;
+    }
+
+    public String deleteRoomDetails(int roomNumber) {
+        Configuration con = new Configuration().configure().addAnnotatedClass(RoomDetails.class);
+        SessionFactory sf = con.buildSessionFactory();
+        Session session = sf.openSession();
+        try {
+            Transaction transaction = session.beginTransaction();
+            RoomDetails roomDetails = session.get(RoomDetails.class, roomNumber);
+            session.delete(roomDetails);
+            transaction.commit();
+            session.close();
+        } catch(Exception e) {
+            return null;
+        }
+        return "Valid";
     }
 }
