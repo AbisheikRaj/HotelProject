@@ -1,7 +1,7 @@
 package org.hotelmanagementsystem.controller;
 
 import org.hotelmanagementsystem.dto.RoomDetailsDTO;
-import org.hotelmanagementsystem.service.RoomService;
+import org.hotelmanagementsystem.service.IRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -23,9 +23,8 @@ public class RoomController {
 
 
     @Autowired
-    private RoomService roomService;
+    private IRoomService roomService;
 
-//    @RequestMapping(value = "/addDetails", method = RequestMethod.POST, consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE}, produces = "application/json")
     @PostMapping(value = "/addDetails", consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public void createRoom(RoomDetailsDTO roomDetails, HttpServletResponse response, HttpServletRequest request) throws IOException {
         String result = roomService.storeRoom(roomDetails);
@@ -39,7 +38,6 @@ public class RoomController {
     }
 
 
-//    @RequestMapping(value = "/updateDetails", method = RequestMethod.POST, consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE}, produces = "application/json")
     @PostMapping(value = "/updateDetails", consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public void updateRoom(RoomDetailsDTO roomDetails, HttpServletRequest request, HttpServletResponse response) throws IOException {
         String result = roomService.updateRoom(roomDetails);

@@ -51,6 +51,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 80px;
 }
 
 input:active, input:focus  {

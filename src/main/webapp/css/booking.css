@@ -1,0 +1,42 @@
+.booking__heading {
+    margin: 100px;
+}
+
+.flex.items-center > .ml-4 {
+    margin-left: 0rem;
+}
+
+.flex {
+    justify-content: center;
+}
+
+.table__content {
+    margin-top: 100px;
+
+}
+
+.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider {
+    text-align: center;
+}
+
+.search__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+input:active, input:focus  {
+    outline: none;
+}
+
+
+td {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+.data__message {
+    text-align: center;
+}

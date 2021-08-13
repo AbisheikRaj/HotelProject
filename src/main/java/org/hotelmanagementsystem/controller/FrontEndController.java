@@ -33,9 +33,9 @@ public class FrontEndController {
         return "Rooms";
     }
 
-    @GetMapping("/index")
+    @GetMapping
     public String index() {
-        return "index";
+        return "Admin";
     }
 
     @GetMapping("/updateRooms")
@@ -48,5 +48,15 @@ public class FrontEndController {
     public String deleteRoom(Model model, @RequestParam(name = "roomNumber") int roomNumber) {
         model.addAttribute("roomNumber", roomNumber);
         return "redirect:/rooms/deleteDetailsById?roomNumber="+ roomNumber;
+    }
+
+    @GetMapping("/bookings")
+    public String bookingDetails() {
+        return "booking";
+    }
+
+    @GetMapping("/userdetails")
+    public String userDetails() {
+        return "UserDetails";
     }
 }

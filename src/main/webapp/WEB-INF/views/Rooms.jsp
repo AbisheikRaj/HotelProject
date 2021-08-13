@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Details</title>
+    <title>Room Details</title>
     <link rel = "stylesheet" href = "<%= request.getContextPath() %>/css/Rooms.css" />
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -14,30 +14,63 @@
 </head>
 
 <body>
+<div style = "margin-left: 30px; margin-right: 30px;">
+    <div>
+        <nav class="bg-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
+                        </div>
+                        <div class="hidden md:block">
+                            <div class="ml-10 flex items-baseline space-x-4">
+                                <a href="/admin" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
 
-<!-- Title -->
-<div class = "room__heading">
-    <div class="lg:flex lg:items-center lg:justify-between">
-        <div class="flex-1 min-w-0">
-            <h2 class="text-2xl font-bold leading-10 text-gray-900 sm:text-3xl sm:truncate">
-                Room Details
-            </h2>
-        </div>
-        <div class="mt-5 flex lg:mt-1 lg:ml-4">
-        <span class="sm:ml-3">
-          <button type="button" onclick="toggleModal('modal-id')" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-            </svg>
-            Add Rooms
-          </button>
-        </span>
-        </div>
+                                <a href="/admin/addRooms" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Room</a>
+
+                                <a href="/admin/userdetails" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">User Details</a>
+
+                                <a href="/admin/bookings" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Booking Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="/admin" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+
+                    <a href="/admin/addRooms" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Room</a>
+
+                    <a href="/admin/userdetails" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">User Details</a>
+
+                    <a href="/admin/bookings" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Booking Details</a>
+                </div>
+            </div>
+        </nav>
+
+        <header class="bg-white shadow">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8" style = "display: flex; justify-content: space-around; align-items: center">
+                <h1 class="text-3xl font-bold text-gray-900">
+                    Room Details
+                </h1>
+                <span class="sm:ml-3">
+                  <button type="button" onclick="toggleModal('modal-id')" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    Add Rooms
+                  </button>
+                </span>
+            </div>
+        </header>
     </div>
 </div>
 
 <!-- Search Bar -->
-<div class="search__container">
+<div class="search__container" style="margin-top: 80px">
     <form action = "/rooms/getDetailsById" method="GET">
         <div class="bg-white shadow p-4 flex">
         <span class="w-auto flex justify-end items-center text-gray-500 p-2">
@@ -64,7 +97,7 @@
                 </div>
             </div>
             <%
-                } else if (session.getAttribute("delete_message") != null) {
+            } else if (session.getAttribute("delete_message") != null) {
             %>
             <div>
                 <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
@@ -92,9 +125,9 @@
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-0">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                        <%
-                            if (session.getAttribute("accept_rooms") != null && session.getAttribute("accept_room") == null && session.getAttribute("message1") != "Invalid") {
-                        %>
+                    <%
+                        if (session.getAttribute("accept_rooms") != null && session.getAttribute("accept_room") == null && session.getAttribute("message1") != "Invalid") {
+                    %>
                     <table class="min-w-full divide-y divide-gray-200" aria-describedby="list of rooms">
                         <thead class="bg-gray-50">
                         <tr>
@@ -116,117 +149,128 @@
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                            <c:forEach items = '${rooms}' var = "room">
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900 text-center">
-                                                        ${room.roomNumber}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-purple-800">
-                                            ${room.roomSection}
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900" id = "roomTyp">${room.roomType}</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <c:choose>
-                                            <c:when test="${room.roomAvailability}">
-                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                     Available
-                                                 </span>
-                                            </c:when>
-                                            <c:otherwise>
-                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                     Not Available
-                                                 </span>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
-                                        <button  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                            <a href = "/admin/updateRooms?roomNumber=${room.roomNumber}">Edit</a>
-                                        </button>
-                                        <button  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                            <a href = "/admin/deleteRooms?roomNumber=${room.roomNumber}">Delete</a>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
-                        <%
-                            } else if(session.getAttribute("accept_room") != null && session.getAttribute("message1") != "Invalid"){
-                        %>
-                    <table class="min-w-full divide-y divide-gray-200" aria-describedby="list of rooms">
-                        <thead class="bg-gray-50">
-                        <tr>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                ROOM NUMBER
-                            </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                ROOM SECTION
-                            </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                ROOM TYPE
-                            </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                AVAILABILITY
-                            </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                ACTION
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
+                        <c:forEach items = '${rooms}' var = "room">
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
                                         <div class="ml-4">
                                             <div class="text-sm font-medium text-gray-900 text-center">
-                                                <%= session.getAttribute("roomNumber")%>
+                                                    ${room.roomNumber}
                                             </div>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-purple-800">
-                                    <%= session.getAttribute("roomSection") %>
+                                        ${room.roomSection}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900"><%= session.getAttribute("roomType") %></div>
+                                    <div class="text-sm text-gray-900" id = "roomTyp">${room.roomType}</div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <c:choose>
-                                        <c:when test='${roomAvailability}'>
-                                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                         Available
-                                                     </span>
+                                        <c:when test="${room.roomAvailability}">
+                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                     Available
+                                                 </span>
                                         </c:when>
                                         <c:otherwise>
-                                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                         Not Available
-                                                     </span>
+                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                     Not Available
+                                                 </span>
                                         </c:otherwise>
                                     </c:choose>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
-                                    <button  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                        <a href = "/admin/updateRooms?roomNumber=${room.roomNumber}">Edit</a>
-                                    </button>
+                                    <a href = "/admin/updateRooms?roomNumber=${room.roomNumber}">
+                                        <button  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                            Edit
+                                        </button>
+                                    </a>
+                                    <a href = "/admin/deleteRooms?roomNumber=${room.roomNumber}">
+                                        <button  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                            Delete
+                                        </button>
+                                    </a>
                                 </td>
                             </tr>
+                        </c:forEach>
                         </tbody>
                     </table>
-                        <% } else {%>
+                    <%
+                    } else if(session.getAttribute("accept_room") != null && session.getAttribute("message1") != "Invalid"){
+                    %>
+                    <table class="min-w-full divide-y divide-gray-200" aria-describedby="list of rooms">
+                        <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                ROOM NUMBER
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                ROOM SECTION
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                ROOM TYPE
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                AVAILABILITY
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                ACTION
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900 text-center">
+                                            <%= session.getAttribute("roomNumber")%>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-purple-800">
+                                <%= session.getAttribute("roomSection") %>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900"><%= session.getAttribute("roomType") %></div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <c:choose>
+                                    <c:when test='${roomAvailability}'>
+                                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                         Available
+                                                     </span>
+                                    </c:when>
+                                    <c:otherwise>
+                                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                         Not Available
+                                                     </span>
+                                    </c:otherwise>
+                                </c:choose>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                                <a href = "/admin/updateRooms?roomNumber=${room.roomNumber}">
+                                    <button  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                        Edit
+                                    </button>
+                                </a>
+                                <a href = "/admin/deleteRooms?roomNumber=${room.roomNumber}">
+                                    <button  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                        Delete
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <% } else {%>
 
-                            <div class="data__message"> <h1>No data are Available...</h1></div>
+                    <div class="data__message"> <h1>No data are Available...</h1></div>
 
 
-                        <% } session.removeAttribute("accept_rooms"); session.removeAttribute("accept_room"); session.removeAttribute("message1"); %>
+                    <% } session.removeAttribute("accept_rooms"); session.removeAttribute("accept_room"); session.removeAttribute("message1"); %>
                 </div>
             </div>
         </div>
