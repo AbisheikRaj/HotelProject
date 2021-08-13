@@ -1,14 +1,19 @@
-package com.example.hotel_management;
+package com.example.hotel_management.model;
 
-
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class BookingDetailsModelDTO {
 
-	
+@Entity(name="booking_details")
+
+
+public class BookingDetailsModel {
+
 	@Id
-	
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//  @GeneratedValue(strategy = GenerationType.AUTO)
 	int bookingId;
 	int userId;
 	String bookingName;
@@ -16,25 +21,25 @@ public class BookingDetailsModelDTO {
 	String checkOut;
 	String roomNumber;
 	String roomType;
-	String email;
-	String mobilenumber;
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getMobilenumber() {
-		return mobilenumber;
-	}
-
-	public void setMobilenumber(String mobilenumber) {
-		this.mobilenumber = mobilenumber;
-	}
-
+	
 	String address;
+String email;
+String mobilenumber;
+	public String getEmail() {
+	return email;
+}
+
+public void setEmail(String email) {
+	this.email = email;
+}
+
+public String getMobilenumber() {
+	return mobilenumber;
+}
+
+public void setMobilenumber(String mobilenumber) {
+	this.mobilenumber = mobilenumber;
+}
 
 	public int getBookingId() {
 		return bookingId;
@@ -96,14 +101,8 @@ public class BookingDetailsModelDTO {
 		return address;
 	}
 
-	@Override
-	public String toString() {
-		return "BookingDetailsModelDTO [bookingId=" + bookingId + ", userId=" + userId + ", bookingName=" + bookingName
-				+ ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", roomNumber=" + roomNumber + ", roomType="
-				+ roomType + ", address=" + address + "]";
-	}
-
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
 }

@@ -1,4 +1,4 @@
-<%@page import="com.example.hotel_management.BookingDetailsModel"%>
+<%@page import="com.example.hotel_management.model.BookingDetailsModel"%>
 
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"

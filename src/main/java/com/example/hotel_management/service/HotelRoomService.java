@@ -1,7 +1,11 @@
-package com.example.hotel_management;
+package com.example.hotel_management.service;
 
 import java.util.List;
 
+import com.example.hotel_management.repository.HotelRoomRepo;
+import com.example.hotel_management.repository.RoomDetailsRepo;
+import com.example.hotel_management.model.BookingDetailsModel;
+import com.example.hotel_management.model.HotelRoomModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +15,7 @@ public class HotelRoomService {
 	HotelRoomRepo repo;
 	@Autowired
 	RoomDetailsRepo repo1;
-	void adduserRoomDetails(BookingDetailsModel book)
+	public void adduserRoomDetails(BookingDetailsModel book)
 	{
 		repo.save(book);
 		

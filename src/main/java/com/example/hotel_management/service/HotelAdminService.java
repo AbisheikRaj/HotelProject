@@ -1,17 +1,18 @@
-package com.example.hotel_management;
+package com.example.hotel_management.service;
 
 import java.util.List;
 
+import com.example.hotel_management.model.BookingDetailsModel;
+import com.example.hotel_management.model.UserdetailsModel;
+import com.example.hotel_management.repository.HotelAdminBookingRepo;
+import com.example.hotel_management.repository.HotelAdminRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-
-
 
 @Service
 public class HotelAdminService {
  @Autowired
-	HotelAdminRepo repo;
+ HotelAdminRepo repo;
 	@Autowired
 	HotelAdminBookingRepo repo1;
 	public List<UserdetailsModel> getUserdetails() {
@@ -30,7 +31,7 @@ public class HotelAdminService {
 	{
 		return repo1.findBybookingId(name);
 	}
-	void adduser(UserdetailsModel user)
+	public void adduser(UserdetailsModel user)
 	{
 		repo.save(user);
 		

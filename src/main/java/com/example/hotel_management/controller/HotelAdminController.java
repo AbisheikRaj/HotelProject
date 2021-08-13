@@ -1,7 +1,11 @@
-package com.example.hotel_management;
+package com.example.hotel_management.controller;
 
 import java.util.List;
 
+import com.example.hotel_management.service.HotelAdminService;
+import com.example.hotel_management.model.UserdetailsModel;
+import com.example.hotel_management.dto.UserdetailsModelDTO;
+import com.example.hotel_management.model.BookingDetailsModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

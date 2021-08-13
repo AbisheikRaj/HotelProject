@@ -1,7 +1,13 @@
-package com.example.hotel_management;
+package com.example.hotel_management.controller;
 
 import java.util.List;
 
+import com.example.hotel_management.service.HotelAdminService;
+import com.example.hotel_management.model.HotelRoomModel;
+import com.example.hotel_management.service.HotelRoomService;
+import com.example.hotel_management.model.UserdetailsModel;
+import com.example.hotel_management.dto.BookingDetailsModelDTO;
+import com.example.hotel_management.model.BookingDetailsModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,35 +23,36 @@ static BookingDetailsModelDTO book1;
 	@Autowired
 	private ModelMapper modelMapper;
 	@Autowired
-	  HotelRoomService service;
+	HotelRoomService service;
 	@Autowired
-	 HotelAdminService service1;
+	HotelAdminService service1;
+
 	static String roomType;
 	static String roomNumber;
 	static int userid;
 	@RequestMapping("/home")
 	public  String home(@RequestParam(name="username") String name)
 	{
-		List<UserdetailsModel> l=service1.getSeacheduservalue(name); 
+		List<UserdetailsModel> l=service1.getSeacheduservalue(name);
 
 		useridset(l.get(0).getUserid());
 		return "home.jsp";
 	}
-	@RequestMapping("/room_search")
 
+	@RequestMapping("/room_search")
 	public  String getRoomSearch(@RequestParam(name="roomType") String name,Model m)
 	{
-		
 		roomtypeset(name);
 	
 		List<HotelRoomModel> room=service.getRoom();
 
 		m.addAttribute("room",room);
- m.addAttribute("value", roomType);
- System.out.print(roomType);
+		 m.addAttribute("value", roomType);
+		 System.out.print(roomType);
 		return "roombook.jsp";
 
 	}
+
 	@RequestMapping("/room_number")
 	public String roomNumber(@RequestParam(name="check") String name)
 	{
@@ -60,7 +67,7 @@ static BookingDetailsModelDTO book1;
 	{
 		book.setRoomType(roomType);
 		book.setRoomNumber(roomNumber);
-book.setUserId(userid);
+		book.setUserId(userid);
 	BookingDetailsModel bookdetail =  modelMapper.map(book, BookingDetailsModel.class);
 	service.adduserRoomDetails(bookdetail);
 	

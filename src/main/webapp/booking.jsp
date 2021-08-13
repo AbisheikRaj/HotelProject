@@ -1,7 +1,7 @@
 <%@page import="java.time.temporal.ChronoUnit"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="java.util.Date"%>
-<%@page import="com.example.hotel_management.BookingDetailsModel"%>
+<%@page import="com.example.hotel_management.model.BookingDetailsModel"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>

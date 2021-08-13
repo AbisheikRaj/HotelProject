@@ -1,4 +1,4 @@
-package com.example.hotel_management;
+package com.example.hotel_management.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
