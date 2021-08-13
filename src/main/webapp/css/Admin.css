@@ -1,0 +1,433 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
+a {
+    text-decoration: none;
+    transition: font-size 0.5s;
+    padding-left: 10px;
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a:active {
+    color : rgb(168, 14, 168);
+}
+
+span {
+    font-size: 50px;
+}
+
+.unordered__list {
+    display: flex;
+    align-items: center;
+}
+
+.unordered__list:hover {
+    font-size: 22px;
+    color: red;
+}
+
+.order__list {
+    padding: 10px;
+}
+
+
+.nav__bar__image {
+    width: 250px;
+    height: 100px;
+    position: relative;
+    top: 15px;
+    left: 0px;
+    animation: movenavimage 2s 0s forwards;
+}
+
+.nav__bar {
+    height: 150px;
+    border-bottom: 2px solid black;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px; 
+}
+
+.navbar__heading {
+    position: absolute;
+    left: 830px;
+    top: 55px;
+    visibility: hidden;
+    transition: opacity 2s ease-in;
+    animation: heading_visible 0s 2s forwards;
+	color: tomato;
+}
+
+
+.admin__page__title__div {
+   display: flex;
+   flex-direction: row;
+   height: 480px;
+}
+
+.admin__page__title__content {
+    border-bottom: 5px solid red;
+    font-size: 60px;
+    padding-top: 40px;
+	color: white;
+}
+
+.admin__page__title__message {
+    margin-right: 60px;
+}
+
+.admin__page__description {
+    padding: 20px;
+    animation : fade-in-out 2s ease-out forwards;
+    position: relative;
+    top: 40px;
+    opacity: 0;
+    font-size: 23px;
+	color:white;
+}
+
+.admin__page__description__inner {
+    padding: 20px;
+    margin-left: 60px;
+    animation : fade-in-out 1s ease-out forwards;
+    position: relative;
+    top: 40px;
+    opacity: 0;
+    font-size: 23px;
+	color:white;
+}
+
+.admin__page__message {
+    margin-top: 45px;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 5px solid rgb(168, 14, 168);
+    margin-left: 200px;
+    margin-right: 200px;
+    border-radius: 50px;
+}
+
+.admin__page__image {
+    margin-top: 40px;
+}
+
+.admin__page__option__title {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.admin__page__message__title {
+    /* border: 2px solid red; */
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin__message__title {
+    position: absolute;
+    left: 720px;
+    padding-top: 20px;
+}
+
+.admin__page__message__content {
+    /* border: 2px solid yellow; */
+    padding: 10px;
+    text-align: center;
+}
+
+.disclaimer__image {
+    width: 50px;
+    height: 40px;
+    padding-right: 10px;
+}
+
+.page__heading {
+    display: flex;
+    justify-content: center;
+    animation : fade-in-out 2s ease-out forwards;
+    align-items: center;
+}
+
+.page__heading > h1 {
+    font-size: 50px;
+}
+
+.admin__page__body {
+    margin: 50px;
+    margin-top: 80px;
+}
+
+.list__of__cards {
+    padding: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+/* cards */
+
+.list__of__booking__details {
+    border: 0.10px solid black;
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+    transition: transform 1s;
+    cursor: pointer;
+    position: relative;
+    top: 100px;
+    /* animation: moveup 2s 1; */
+    
+}
+
+.list__of__user__details {
+    border: 0.10px solid black;
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+    transition: transform 0.5s;
+    cursor: pointer;
+    position: relative;
+    top: 100px;
+    /* animation: moveup 2s 1; */
+    /* animation-fill-mode: forwards; */
+}
+
+
+.list__of__hotel__card:hover, .list__of__user__details:hover, .list__of__booking__details:hover {
+    border: 0.10px solid black;
+    transform: scale(1.05);
+    box-shadow: 0px 0px 5px 2px black;
+}
+
+/* End of cards */
+
+
+.list__of__booking__image {
+    position: relative;
+    left: 96px;
+    top: 40px;
+    width: 200px;
+    height: 100px;
+}
+
+.list__of__user__image {
+    position: relative;
+    left: 150px;
+    top: 40px;
+    width: 100px;
+    height: 100px;
+}
+
+
+.list__of__booking__title {
+    position: absolute;
+    top: 155px;
+    left: 108px;
+    color: lavender;
+}
+
+.list__of__user__title {
+    position: absolute;
+    top: 155px;
+    left: 125px;
+    color: lavender;
+}
+
+.list__of__bookings__content, .list__of__users__content {
+    margin: 100px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+}   
+
+.list__of__bookings__content__image, .list__of__users__content__image {
+    position: relative;
+} 
+
+.list__of__bookings__content__message, .list__of__users__content__message {
+    position: relative;
+    float: right;
+    font-size: 30px;
+    margin-left: 250px;
+	color: white;
+}
+
+.list__of__booking__content, .list__of__user__content {
+    position: relative;
+    top: 80px;
+    font-size: 20px;
+    padding: 20px;
+    font-weight: bold;
+	color: white;
+    
+}
+
+.list__of__booking__content > ul > li, .list__of__user__content > ul > li {
+    padding: 10px;
+}
+
+
+.admin__page__footer {
+    border: 2px solid black;
+    height: 250px;
+    background-color: lavender;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin__page__footer__content {
+    color: white;
+    
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+    .animation__effect {
+        animation: moveup 2s 1;
+        animation-fill-mode: forwards;
+    }
+
+    .animation__effect1 {
+        animation: moveout2 2s forwards;
+    }
+
+    .animation__effect2 {
+        animation: moveout1 2s forwards;
+    }
+
+}
+
+@keyframes moveup {
+    from {
+        top : 100px;
+    }
+    to {
+        top : 0px;
+    }
+}
+
+
+@keyframes movenavimage {
+    0% {
+        left: 0px;
+    }
+    50% {
+        left: 1000px;
+    }
+    100% {
+        left: 600px;
+    }
+}
+
+@keyframes heading_visible {
+    to {
+        visibility: visible;
+    }
+}
+
+@keyframes moveout1 {
+    from {
+        left: 0px;
+    }   
+    to {
+        left: 50px;
+    }
+}
+
+@keyframes moveout2 {
+    from {
+        right: 0px;
+    }   
+    to {
+        right: 50px;
+    }
+}
+
+@keyframes fade-in-out {
+    from {
+        top: 40px;
+        opacity: 0;
+    }
+    to {
+        top: 10px;
+        opacity: 1;
+    }   
+}
+
+@media only screen and (max-width: 1340px) {
+    
+    .nav__bar {
+        display: none;
+    }
+
+    .admin__page__message {
+        display: none;
+    }
+ 
+    .admin__page__title__div {
+        display: none;
+    }
+
+    .list__of__cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .list__of__booking__details {
+        margin-bottom: 30px;   
+    }
+
+    .page__heading > h1 {
+        font-size: 42px;
+    }
+
+    .admin__page__animation__body {
+        display: none;
+    }
+}
+
+@media only screen and (max-width : 850px) {
+    .page__heading > h1 {
+        font-size: 22px;
+    }
+}
+.top{
+    background: url(../imgs/1.jpg) no-repeat 0px 0px;
+    background-size: cover;	
+	-webkit-background-size: cover;	
+	-moz-background-size: cover;
+	-o-background-size: cover;		
+	-moz-background-size: cover;
+}
+.top1{
+	background: url(../imgs/2.jpg) no-repeat 0px 0px;
+    background-size: cover;	
+	-webkit-background-size: cover;	
+	-moz-background-size: cover;
+	-o-background-size: cover;		
+	-moz-background-size: cover;
+}
+.top2{
+	background: url(../imgs/3.jpg) no-repeat 0px 0px;
+    background-size: cover;	
+	-webkit-background-size: cover;	
+	-moz-background-size: cover;
+	-o-background-size: cover;		
+	-moz-background-size: cover;	
+}
+.navbar-brand {
+    float: left;
+    transform: skew(30deg);
+}
