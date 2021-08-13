@@ -1,0 +1,25 @@
+
+.room__heading {
+    margin: 70px 60px 0px 30px;
+}
+
+.message__alert__div {
+    margin-top: 100px;
+}
+
+.message__alert {
+    max-width: 384px;
+    height: 20px;
+}
+
+.update__error__alert {
+    margin-left: 68px;
+}
+
+.invalid {
+    color: red;
+}
+
+span {
+    color: red;
+}

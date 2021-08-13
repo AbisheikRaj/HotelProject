@@ -1,0 +1,77 @@
+.message__alert__div {
+    margin-top: 50px;
+}
+
+.message__alert {
+    display: flex;
+    justify-content: center;
+    height: 10px;
+}
+
+.invalid {
+    color: red;
+}
+
+#roomSectionHelp, #roomNumberHelp, #roomTypeHelp {
+    color: red;
+}
+
+.error__alert {
+    display: flex;
+    justify-content: center;
+    width: 330px;
+}
+
+.data__message {
+    text-align: center;
+}
+
+.flex.items-center > .ml-4 {
+    margin-left: 0rem;
+}
+
+.flex {
+    justify-content: center;
+}
+
+.table__content {
+    margin-top: 100px;
+
+}
+
+.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider {
+    text-align: center;
+}
+
+.room__heading {
+    margin: 100px;
+}
+
+.search__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+input:active, input:focus  {
+    outline: none;
+}
+
+.model__form {
+    margin-top: 60px;
+}
+
+.action__button {
+    margin-left: 45px;
+}
+
+.w-full.max-w-sm {
+    width: 20rem;
+}
+
+td {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
